@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # [1.3.0](https://github.com/Soluciones-Alexendros/webconfig/compare/v1.2.0...v1.3.0) (2026-09-11)
 
 
@@ -5,6 +7,7 @@
 
 * **ds:** design system OKLCH DTCG con showcase y validación completa ([#5](https://github.com/Soluciones-Alexendros/webconfig/issues/5)) ([775467e](https://github.com/Soluciones-Alexendros/webconfig/commit/775467e972a8e7c7709f86305247deb23019d272))
 
+>>>>>>> 42c2715a6b44fbe3e786915713ec18911a7ff758
 # [1.2.0](https://github.com/Soluciones-Alexendros/webconfig/compare/v1.1.0...v1.2.0) (2026-09-11)
 
 
