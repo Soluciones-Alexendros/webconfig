@@ -1,5 +1,14 @@
 # webconfig
 
+<<<<<<< HEAD
+=======
+### Propósito de este documento
+
+- **Objetivos:** Presentar la CLI webconfig, el formato `site.bundle v1.0.0` y los contratos públicos (comandos, códigos de error, Design System opt-in) para humanos, CI y agentes.
+- **Estructura:** Identidad y TL;DR → qué hace → requisitos e instalación → tokens/Showcase → comandos → troubleshooting y códigos → catálogo DS → determinismo, árbol del paquete, contrato de versión y comunidad.
+- **Contenido a integrar según contexto:** Adapta nombre, badges, ejemplos y enlaces de este producto. No copies `tokens/*.tokens.json`, `dist-tokens/` ni el Showcase a otro paquete público: el DS es opt-in de este repo y no forma parte del bundle. No copies `schemas/` ni la tabla de códigos a otro producto.
+
+>>>>>>> 42c2715a6b44fbe3e786915713ec18911a7ff758
 [![CI](https://github.com/Soluciones-Alexendros/webconfig/actions/workflows/ci.yml/badge.svg)](https://github.com/Soluciones-Alexendros/webconfig/actions/workflows/ci.yml)
 [![Release](https://github.com/Soluciones-Alexendros/webconfig/actions/workflows/release.yml/badge.svg)](https://github.com/Soluciones-Alexendros/webconfig/releases)
 ![Node >=20](https://img.shields.io/badge/node-%3E%3D20-339933)
@@ -27,7 +36,7 @@ Flujo típico: `init` → `validate` → `normalize` → `export` → `integrity
 flowchart LR; init-->validate-->normalize-->export-->integrity;
 ```
 
-**Ref:** [CHANGELOG](CHANGELOG.md) · [DECISIONS](DECISIONS.md) · [ds-catalog.example.yaml](ds-catalog.example.yaml) · [schemas/](schemas/) · [CONTRIBUTING](CONTRIBUTING.md)
+**Ref:** [CHANGELOG](CHANGELOG.md) · [DECISIONS](DECISIONS.md) · [ARCHITECTURE](ARCHITECTURE.md) · [AGENTS](AGENTS.md) · [docs/](docs/) · [CONTRIBUTING](CONTRIBUTING.md) · [SECURITY](SECURITY.md)
 
 ---
 
@@ -88,9 +97,10 @@ Sistema de diseño tokenizado desde colores hasta componentes:
 
 - **Fuente:** `tokens/*.tokens.json` en formato **W3C DTCG** (`$value/$type/$description`), color autorado en **OKLCH** (CSS Color 4). Metodología CSS **CUBE + Every Layout**, sin frameworks JS.
 - **Build:** `npm run tokens:build` genera `dist-tokens/{css,variables.css · ts/tokens.ts · json/tokens.json}` + fallback hex sRGB para navegadores sin `oklch()`. `npm run tokens:check` verifica contraste **WCAG 2.2 AA + APCA** y cobertura 1:1.
-- **GUI:** `npm run ds:dev` abre el Showcase (Vite): `/` tabla de tokens con swatches y toggle light/dark/auto · `/#/componentes` los 18 componentes de `ds-catalog.example.yaml` · `/#/preview/home` render del bundle golden + selector de fixtures inválidas.
+- **Contrato:** [`tokens/CONTRACT.md`](tokens/CONTRACT.md) y [`tokens/contract.schema.json`](tokens/contract.schema.json) (v1.0, fuera de `schemas/`).
+- **Landing / GUI:** React + shadcn/ui (Vite, build estático). `npm run ds:dev` sirve el Showcase en `/` y la landing en `/landing/`. Rutas del Showcase: tokens · `#/componentes` · `#/preview/home` · `#/validar` (AJV en el navegador). El export tar sigue en la CLI.
 - **E2E/visual:** `npx playwright test` (chromium: 3 rutas sin errores, toggle de tema, 18 tarjetas, preview golden, screenshots light/dark, checks a11y). Baseline en `tests/ds/showcase.e2e.spec.ts-snapshots/`.
-- **Compat:** el formato `site.bundle v1.0.0` no cambia (`schemas/` congelado). Extensión opt-in documentada en `docs/adr/ds-tokens-v1.1-proposal.md`.
+- **Compat:** el formato `site.bundle v1.0.0` no cambia (`schemas/` congelado). Extensión opt-in documentada en [`docs/architecture/decisions/0001-ds-tokens-v1.1-proposal.md`](docs/architecture/decisions/0001-ds-tokens-v1.1-proposal.md).
 
 ---
 
@@ -350,12 +360,12 @@ webconfig separa **dos versiones que no debes confundir**:
 | **Versión de la herramienta** (webconfig) | `package.json` → `version` | semantic-release (bumps automáticos en cada release) |
 | **Versión del formato** site.bundle | `schemas/` y `schema_compat` | Decisión manual únicamente (nadie la toca automáticamente) |
 
-- El **formato** site.bundle está **congelado en v1.0.0**. No cambia salvo decisión manual explícita, y cualquier cambio requiere una propuesta escrita en `DECISIONS.md`.
+- El **formato** site.bundle está **congelado en v1.0.0**. No cambia salvo decisión manual explícita, y cualquier cambio requiere una propuesta escrita en [`docs/architecture/decisions/`](docs/architecture/decisions/).
 - La **herramienta** se versiona de forma independiente (`v1.0.x`, `v1.1.x`, ...): puedes actualizar webconfig sin que eso altere el formato que produce o valida.
 - Los **tags de formato** (puntos de anclaje como `v1.0.0`) son la referencia para los consumidores del formato: un paquete site.bundle se identifica por su versión de formato, no por la versión del CLI que lo generó.
 
 ---
 
-## Licencia
+## Licencia y comunidad
 
-MIT
+MIT. Contribuciones: [CONTRIBUTING.md](CONTRIBUTING.md). Conducta: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Vulnerabilidades: [SECURITY.md](SECURITY.md).
