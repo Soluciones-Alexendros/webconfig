@@ -1,7 +1,7 @@
 # webconfig
 
-[![CI](https://github.com/Iniciativas-Alexendros/webconfig/actions/workflows/ci.yml/badge.svg)](https://github.com/Iniciativas-Alexendros/webconfig/actions/workflows/ci.yml)
-[![Release](https://github.com/Iniciativas-Alexendros/webconfig/actions/workflows/release.yml/badge.svg)](https://github.com/Iniciativas-Alexendros/webconfig/releases)
+[![CI](https://github.com/Soluciones-Alexendros/webconfig/actions/workflows/ci.yml/badge.svg)](https://github.com/Soluciones-Alexendros/webconfig/actions/workflows/ci.yml)
+[![Release](https://github.com/Soluciones-Alexendros/webconfig/actions/workflows/release.yml/badge.svg)](https://github.com/Soluciones-Alexendros/webconfig/releases)
 ![Node >=20](https://img.shields.io/badge/node-%3E%3D20-339933)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
